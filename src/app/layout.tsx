@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Next.js PWA App',
   description: 'My Next.js PWA Application',
   manifest: '/manifest.json',
-  viewport: 'width=device-width, initial-scale=1',
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover, minimal-ui',
   icons: {
     apple: '/icons/icon-192x192.png',
   },
@@ -20,12 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+      <body className="h-full">
+        <div className="flex min-h-full flex-col">
+          <Navbar />
+          <main className="flex-1 overflow-y-auto">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
